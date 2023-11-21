@@ -73,7 +73,7 @@ void Duty_Cycle_Update(void)
 
 <br>4. Click on _Project Resources>System>Interrupt Manager_, then do the following configuration:
 <br><img src="../images/Select_Interrupt_Manager.png">
-<br><img src="../Images/Global_Interrupt_Resolution.png">
+<br><img src="../images/Global_Interrupt_Resolution.png">
 
 <br>5. Click on Project _Resources>System>CLKCTRL_, then do the following configuration:
 <br><img src="../images/Select_CLKCTRL.png">
