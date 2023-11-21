@@ -1,45 +1,36 @@
-<!-- Please do not change this logo with link -->
-
 [![MCHP](images/microchip.png)](https://www.microchip.com)
 
-# Update the title for avr16eb32-tce-and-wex-new-features-examples-mplab-mcc here
+# TCE and WEX new features examples
 
-<!-- This is where the introduction to the example goes, including mentioning the peripherals used -->
+This repository contains examples of MPLAB® Code Configurator (MCC) Melody source code for the new Timer Counter type E (TCE) and Waveform Extension (WEX) peripherals of the AVR<sup>®</sup> EB family of devices. There are five applications described in this document. Each application highlights new features of the two peripherals. Each application's functionality is explained.
+
+* [<strong>PWM Signal Modulation Code Example:</strong>](PWM_Modulation) In this use case, the TCE and WEX are used to generate sinusoidal signals modulating Pulse-Width Modulation signals. At run time the sinewave can be modulated in frequency or amplitude.
+* [<strong>Dead time and Fault Code Example:</strong>](WEX_DT_FAULT) This example shows how to use WEX and TCE to generate complementary signals with added dead time in hardware. This code example highlights the fault hardware handling feature, and the fault hardware filter.
+* [<strong>Scaling Code Example:</strong>](TCE_Scaling) In this example the TCE timer is initialized in Dual-Slope mode with initial values for the duty cycles of PWM signals. At runtime the values of duty cycles change depending on the value of Amplitude and Scale mode. This code example highlights the hardware scaling feature of TCE for duty cycle values.
+* [<strong>High Resolution Code Example:</strong>](TCE_HighResolution) In this example the TCE is configure to generate four PWM signals with one peripheral clock cycle difference between the duty cycles of each PWM signal. The peripheral clock is configured to enable the High Resolution feature of TCE (up to 160 MHz).
+* [<strong>Pattern Generation and Swap Code Example:</strong>](WEX_Pgm_Swap) This is a basic use case of the WEX peripheral to set a pattern for the output signals that changes periodically. This example shows how WEX can take control of output signals from TCE and generate patterns, and how the Swap feature works.
 
 ## Related Documentation
 
-<!-- Any information about an application note or tech brief can be linked here. Use unbreakable links!
-     In addition a link to the device family landing page and relevant peripheral pages as well:
-     - [AN3381 - Brushless DC Fan Speed Control Using Temperature Input and Tachometer Feedback](https://microchip.com/00003381/)
-     - [PIC18F-Q10 Family Product Page](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q10-product-family) -->
+More details and code examples on the AVR16EB32 can be found at the following links:
+
+- [AVR<sup>®</sup> EB Product Page](https://www.microchip.com/en-us/product/AVR16EB32)
+- [AVR<sup>®</sup> EB Code Examples on GitHub](https://github.com/microchip-pic-avr-examples?q=AVR16EB32)
 
 ## Software Used
 
-<!-- All software used in this example must be listed here. Use unbreakable links!
-     - MPLAB® X IDE 5.30 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
-     - MPLAB® XC8 2.10 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
-     - MPLAB® Code Configurator (MCC) 3.95.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - Microchip PIC18F-Q Series Device Support (1.4.109) or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/) -->
-
-- MPLAB® X IDE 6.15.0 or newer [(MPLAB® X IDE 6.15)](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_MPAE_Examples&utm_content=avr16eb32-tce-and-wex-new-features-examples-mplab-mcc-github)
-- MPLAB® XC8 2.45.0 or newer compiler [(MPLAB® XC8 2.45)](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-xc-compilers?utm_source=GitHub&utm_medium=TextLink&utm_campaign=MCU8_MMTCha_MPAE_Examples&utm_content=avr16eb32-tce-and-wex-new-features-examples-mplab-mcc-github)
+- [MPLAB® X IDE v6.15 or newer](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide)
+- [AVR-Ex DFP-2.8.189 or newer Device Pack](https://packs.download.microchip.com/)
+- [MPLAB® XC8 compiler v2.45](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers/downloads-documentation#XC8)
+- [MPLAB® Code Configurator (MCC) v5.3.7](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
+- [MPLAB® Code Configurator (MCC) Melody Core v2.6.2 or newer](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator)
 
 ## Hardware Used
 
-<!-- All hardware used in this example must be listed here. Use unbreakable links!
-     - PIC18F47Q10 Curiosity Nano [(DM182029)](https://www.microchip.com/Developmenttools/ProductDetails/DM182029)
-     - Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
-     - POT Click board™ [(MIKROE-3402)](https://www.mikroe.com/pot-click) -->
+- [AVR<sup>®</sup> EB Curiosity Nano](https://www.microchip.com/en-us/product/AVR16EB32)
 
 ## Setup
 
-<!-- Explain how to connect hardware and set up software. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
+The AVR16EB32 Curiosity Nano Development board is used as test platform.
 
-## Operation
-
-<!-- Explain how to operate the example. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
-
-## Summary
-
-<!-- Summarize what the example has shown -->
+<br><img src="images/AVR16EB32_Cnano_Board.png">
