@@ -113,7 +113,7 @@ void Sinewave_Modulation(void)
  |            PA0           |   TCE WO0           |
  |            PA1           |   TCE WO1           |
 
- <br><img src="../Images/Pin_Grid_View_PWM_Modulation.PNG">
+ <br><img src="../images/Pin_Grid_View_PWM_Modulation.PNG">
 
 <br>9. In the **Project Resources** tab, click the **Generate** button so that MCC will generate all the specified drivers and configurations.
 <br>

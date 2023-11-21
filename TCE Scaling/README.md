@@ -143,7 +143,7 @@ void Scale_Mode_Change(uint8_t scale_mode)
 
 <br><img src="../images/Pin_Grid_View_Scaling.PNG">
 
-<br>7. In the Project Resources window, click the Generate button so that MCC will generate all the specified drivers and configurations.
+<br>7. In the Project Resources window, click the **Generate** button so that MCC will generate all the specified drivers and configurations.
 <br>
 <br>
 <br><img src="../images/Generate_Code.png">
