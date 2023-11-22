@@ -64,31 +64,31 @@ void WEX0_SwapChannelSet(uint8_t channels)
 
 <br><img src="../images/wex_pgm_swap_flowchart.png">
 
-<br>To generate this project using MPLAB X IDE and the MPLAB X Code Configurator (MCC Melody, MCC Clasic is not supported on this device), follow the next steps:
+<br>This project is generated using MPLAB X IDE and the MPLAB X Code Configurator (MCC) Melody (MCC Classic is not supported on this device). To do this follow the next steps:
 
 <br>1. Open MPLAB X IDE and create a new project for the AVR16EB32 device.
 
 <br>2. Open MCC from the toolbar (more information on how to install the MCC plug-in can be found [here](https://onlinedocs.microchip.com/pr/GUID-1F7007B8-9A46-4D03-AEED-650357BA760D-en-US-6/index.html?GUID-D98198EA-93B9-45D2-9D96-C97DBCA55267)).
 
-<br>3. In **MCC Content Manager** tab click the **Select MCC Melody** button and then click **Finish**.<br><img src="../images/addMCC.png">
+<br>3. From the **MCC Content Manager** tab click the **Select MCC Melody** button and then click **Finish**.<br><img src="../images/addMCC.png">
 <br><img src="../images/selectMCCMelody.png">
 <br><img src="../images/mccFinish.png">
 
-<br>4. Click on Project _Resources>System>CLKCTRL_, then do the following configuration:
+<br>4. Click Project _Resources>System>CLKCTRL_, then do the following configuration:
 <br><img src="../images/Select_CLKCTRL.png">
     <br> - Disable the Prescaler enable button
 <br><img src="../images/CLKCTRL_Pgm_Swap.png">
 
 <br>5. To add the TCE module, go to _Device Resources>Drivers>Timer>TCE0_, then do the following configuration:
 <br><img src="../images/Add_TCE.png">
-    <br> - Module Enable - toggle the button (it turns blue if enabled)
+    <br> - Module Enable: Must be enabled by default, if not, just toggle the button (it turns blue if enabled)
     <br> - Clock Selection: System clock (by default the divider must be 1 - System clock)
     <br> - Waveform Generation Mode: Single-slope PWM mode with overflow on TOP
-    <br> - Requested Period[s]: 0.00005
-    <br> - Duty Cycle 0 [%] : 15
-    <br> - Duty Cycle 1 [%] : 25
-    <br> - Duty Cycle 2 [%] : 60
-    <br> - Duty Cycle 3 [%] : 75
+    <br> - Requested Period [s]: 0.00005
+    <br> - Duty Cycle 0 [%]: 15
+    <br> - Duty Cycle 1 [%]: 25
+    <br> - Duty Cycle 2 [%]: 60
+    <br> - Duty Cycle 3 [%]: 75
     <br>  - Waveform Output n : check the boxes from the Enable column for Waveform Output 0, 1, 2, 3
 <br><img src="../images/TCE_Pgm_Swap.png">
 
@@ -102,7 +102,7 @@ void WEX0_SwapChannelSet(uint8_t channels)
     <br> - Pattern Generation Actions : check all the boxes from the Override Enable column and set for each output a desired state (LOW or HIGH), in order to set a pattern
 <br><img src="../images/WEX_Pgm_Swap.png">
 
-<br>7. In the **Pin Grid View** tab check if the WEX WO [0-7] pins are locked as outputs on PORTA. When the boxes from Output Enable column from Override Settings are checked, the pins are also locked. To change the PORT simply click a pin from another PORT in **Pin Grid View**. Select PIN5 of PORTD as an output to use for toggle to see when WEX takes control of outputs from TCE.
+<br>7. In the **Pin Grid View** tab check if the WEX WO [0-7] pins are locked as outputs on PORTA. When the boxes from the Output Enable column in the Override Settings are checked, the pins are also locked. To change the PORT simply click a pin from another PORT in **Pin Grid View**. Select PIN5 of PORTD as an output to use for toggle to see when WEX takes control of outputs from TCE.
 
  |Pin                       | Configuration       |
  | :---------------------:  | :----------------:  |
@@ -114,7 +114,7 @@ void WEX0_SwapChannelSet(uint8_t channels)
  |            PA5           |   WEX WO5           |
  |            PA6           |   WEX WO6           |
  |            PA7           |   WEX WO7           |
- |            PD5           |   digital output    |
+ |            PD5           |   Digital output    |
 
  <br><img src="../images/Pin_Grid_View_Pgm_Swap.PNG"> 
 
@@ -124,7 +124,7 @@ void WEX0_SwapChannelSet(uint8_t channels)
 <br><img src="../images/Generate_Code.png">
 <br>
 
-<br>9. After the MCC Melody generates the project files with the configuration explained above, overwrite the content from the ```main.c``` file with this:
+<br>9. After MCC Melody generates the project files with the configuration explained above, overwrite the content from the ```main.c``` file with this:
 
 ```c
 /* Calculated values for PGMOUT and SWAP registers of WEX */
@@ -236,7 +236,7 @@ int main(void)
 
 <br><img src="../images/Set_Main_Project.png">
 
- 4. Build the ```WEX_Pgm_Swap.X``` project by clicking on **Clean and Build Project**.
+ 4. Build the ```WEX_Pgm_Swap.X``` project by clicking **Clean and Build Project**.
 
 <br><img src="../images/Clean_Build.png">
 

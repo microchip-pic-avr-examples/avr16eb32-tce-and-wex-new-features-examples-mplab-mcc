@@ -96,32 +96,32 @@ void Scale_Mode_Change(uint8_t scale_mode)
 
 <br><img src="../images/tce_scale_flowchart.png">
 
-<br>To generate this project using MPLAB X IDE and the MPLAB X Code Configurator (MCC Melody, MCC Clasic is not supported on this device), follow the next steps:
+<br>This project is generated using MPLAB X IDE and the MPLAB X Code Configurator (MCC) Melody (MCC Classic is not supported on this device). To do this follow the next steps:
 
-<br>1. Open MPLAB X IDE and create a new project for AVR16EB32 device.
+<br>1. Open MPLAB X IDE and create a new project for the AVR16EB32 device.
 
 <br>2. Open MCC from the toolbar (more information on how to install the MCC plug-in can be found [here](https://onlinedocs.microchip.com/pr/GUID-1F7007B8-9A46-4D03-AEED-650357BA760D-en-US-6/index.html?GUID-D98198EA-93B9-45D2-9D96-C97DBCA55267)).
 
-<br>3. In **MCC Content Manager** tab click the **Select MCC Melody** button and then click **Finish**.<br><img src="../images/addMCC.png">
+<br>3. From the **MCC Content Manager** tab click the **Select MCC Melody** button and then click **Finish**.<br><img src="../images/addMCC.png">
 <br><img src="../images/selectMCCMelody.png">
 <br><img src="../images/mccFinish.png">
 
-<br>4. Click on Project _Resources>System>CLKCTRL_, then do the following configuration:
+<br>4. Click Project _Resources>System>CLKCTRL_, then do the following configuration:
 <br><img src="../images/Select_CLKCTRL.png">
     <br> - Disable the Prescaler enable button
 <br><img src="../images/CLKCTRL_Scaling.png">
 
 <br>5. To add the TCE module, go to _Device Resources>Drivers>Timer>TCE0_, then do the following configuration:
 <br><img src="../images/Add_TCE.png">
-    <br>  - Module Enable: Must be enabled by default, if not just toggle the button (it turns blue if enabled)
+    <br>  - Module Enable: Must be enabled by default, if not, just toggle the button (it turns blue if enabled)
     <br>  - Clock Selection: System clock (by default the divider must be 1 - System clock)
     <br>  - Counter Direction: UP
     <br>  - Waveform Generation Mode: Dual-slope PWM mode with overflow on TOP and BOTTOM (DSBOTH)
-    <br>  - Requested Period[s]: 0.0001
-    <br>  - Duty Cycle 0 [%] : 20
-    <br>  - Duty Cycle 1 [%] : 40
-    <br>  - Duty Cycle 2 [%] : 60
-    <br>  - Duty Cycle 3 [%] : 80
+    <br>  - Requested Period [s]: 0.0001
+    <br>  - Duty Cycle 0 [%]: 20
+    <br>  - Duty Cycle 1 [%]: 40
+    <br>  - Duty Cycle 2 [%]: 60
+    <br>  - Duty Cycle 3 [%]: 80
     <br>  - Waveform Output n : check the boxes from the Enable column for Waveform Output 0, 1, 2, 3
     <br>  - Duty Cycle High Resolution: Resolution increased by 4
     <br>  - Scale mode: CMP values are scaled from Bottom, 0% DC (duty cycle)
@@ -130,7 +130,7 @@ void Scale_Mode_Change(uint8_t scale_mode)
     <br>  - Amplitude Value: 1
 <br><img src="../images/TCE_Scaling.png">
 
-<br>6. In the **Pin Grid View** tab check if the TCE WO [0-3] pins are locked as outputs on PORTA. When the boxes from Enable column from Output Settings of TCE are checked, the pins are also locked. To change the PORT simply click a pin from another PORT in **Pin Grid View**. Select from **Pin Grid View** tab PIN5 and PIN4 of PORTD as outputs to toggle when the amplitude, compare values and scale mode changes.
+<br>6. In the **Pin Grid View** tab check if the TCE WO [0-3] pins are locked as outputs on PORTA. When the boxes from the Enable column in the Output Settings of TCE are checked, the pins are also locked. To change the PORT simply click a pin from another PORT in **Pin Grid View**. Select from **Pin Grid View** tab PIN5 and PIN4 of PORTD as outputs to toggle when the amplitude, compare values and scale mode changes.
 
  |            Pin           |    Configuration    |
  | :---------------------:  | :----------------:  |
@@ -138,8 +138,8 @@ void Scale_Mode_Change(uint8_t scale_mode)
  |            PA1           |   TCE WO1           |
  |            PA2           |   TCE WO2           |
  |            PA3           |   TCE WO3           |
- |            PD5           |   digital output    |
- |            PD4           |   digital output    |
+ |            PD5           |   Digital output    |
+ |            PD4           |   Digital output    |
 
 <br><img src="../images/Pin_Grid_View_Scaling.PNG">
 
@@ -149,7 +149,7 @@ void Scale_Mode_Change(uint8_t scale_mode)
 <br><img src="../images/Generate_Code.png">
 <br>
 
-<br>8. After the MCC Melody generates the project files with the configuration explained above, overwrite the content from main.c file with this:
+<br>8. After MCC Melody generates the project files with the configuration explained above, overwrite the content from main.c file with this:
 
 ```c
 /* Calculated values for Period, CMP, Amplitude and OFFSET registers */
@@ -245,7 +245,7 @@ int main(void)
 
 <br><img src="../images/Set_Main_Project.png">
 
- 4. Build the ```TCE_Scaling.X``` project by clicking on **Clean and Build Project**.
+ 4. Build the ```TCE_Scaling.X``` project by clicking **Clean and Build Project**.
 
 <br><img src="../images/Clean_Build.png">
 
