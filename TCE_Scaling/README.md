@@ -2,7 +2,7 @@
 
 ## Scaling Code Example
 
-Below is an example of how to set a TCE instance to generate four Pulse-Width Modulation (PWM) signals at 10 kHz with 20%, 40%, 60% and 80% duty cycles. In this example the scaling feature of the values set in compare registers is highlighted. The scale mode is changed at run time and the changes are affecting the duty cycles values.
+The example below shows how to set a TCE instance to generate 4 Pulse-Width Modulation (PWM) signals at 10 kHz with 20%, 40%, 60%, and 80% duty cycles. In this example, the scaling feature of the values set in compare registers is highlighted. The Scale mode changes during run time, affecting the duty cycle values.
 
 ## Related Documentation
 
@@ -31,11 +31,11 @@ The AVR16EB32 Curiosity Nano Development board is used as a test platform.
 
 ## Functionality
 
-<br>After the peripheral clock, the output port pins and TCE are initialized, the  ```Scale_Mode_Change``` function is called in an infinite loop. This function changes the value written in the AMP every 10 ms register and also changes the scale mode every 40 ms. Based on this value, the values that are initially written in the CMPBUF registers of TCE are scaled in hardware. TCE has a scaling hardware accelerator that modifies the values from CMPBUF registers based on the scale mode and the values from AMP and OFFSET registers. In this application, the amplitude is changed so the maximum duty cycle possible has the following values: 50%, 75%, 100% and 150%.
+<br>After the peripheral clock, the output port pins and TCE are initialized, the  ```Scale_Mode_Change``` function is called in an infinite loop. This function changes the value written in the AMP every 10 ms register and changes the Scale mode every 40 ms. Based on this value, the values initially written in the CMPBUF registers of TCE are scaled in hardware. TCE has a scaling hardware accelerator that modifies the values from CMPBUF registers based on the scale mode and the values from AMP and OFFSET registers. In this application, the amplitude is changed so the maximum duty cycle possible has the following values: 50%, 75%, 100% and 150%.
 
-<br>For example if the scale mode is set to CENTER, when the amplitude is set so that the maximum duty cycle is 50%, the initial value from CMP0BUF of 20% duty cycle gets scaled to 10%. The initial value from CMP1BUF of 40% duty cycle gets scaled to 20%. The initial value from CMP2BUF of 60% duty cycle gets scaled to 30%. The initial value from CMP3BUF of 80% duty cycle gets scaled to 40%. An important thing to note is that if the scaled duty cycle is higher than 100%, it will be saturated at 100%, meaning the output pin of TCE will stay in logic `1` high. The Scale mode is first set to CENTER, then BOTTOM, TOP and TOP-BOTTOM. After that, the process repeats itself over and over again.
+<br>For example if the scale mode is set to CENTER, when the amplitude is set so that the maximum duty cycle is 50%, the CMP0BUF's initial value of 20% duty cycle gets scaled to 10%. The initial value from CMP1BUF of 40% duty cycle gets scaled to 20%. The initial value from CMP2BUF of 60% duty cycle gets scaled to 30%. The initial value from CMP3BUF of 80% duty cycle gets scaled to 40%. An important thing to note is that if the scaled duty cycle is higher than 100%, it will be saturated at 100%, meaning  TCE's output pin will stay in logic `1` high. The Scale mode is first set to CENTER, then BOTTOM, TOP and TOP-BOTTOM. After that, the process repeats itself over and over again.
 
-<br>The values in CMPBUF registers must be rewritten for the amplitude change to take place. To be able to see the changes on a logic analyzer, an IO pin (PD5) is set to toggle when a change in amplitude has taken place. Another IO pin (PD4) is set to toggle when the scale mode is modified.
+<br>The values in CMPBUF registers must be rewritten to change the amplitude. To view the changes on a logic analyzer, an IO pin (PD5) is set to toggle when the amplitude changes. Another IO pin (PD4) is set to toggle when the Scale mode is modified.
 
 ## Function Called in an Infinite Loop
 
@@ -116,21 +116,21 @@ void Scale_Mode_Change(uint8_t scale_mode)
     <br>  - Module Enable: Must be enabled by default, if not, just toggle the button (it turns blue if enabled)
     <br>  - Clock Selection: System clock (by default the divider must be 1 - System clock)
     <br>  - Counter Direction: UP
-    <br>  - Waveform Generation Mode: Dual-slope PWM mode with overflow on TOP and BOTTOM (DSBOTH)
+    <br>  - Waveform Generation Mode: Dual-Slope PWM mode with overflow on TOP and BOTTOM (DSBOTH)
     <br>  - Requested Period [s]: 0.0001
     <br>  - Duty Cycle 0 [%]: 20
     <br>  - Duty Cycle 1 [%]: 40
     <br>  - Duty Cycle 2 [%]: 60
     <br>  - Duty Cycle 3 [%]: 80
-    <br>  - Waveform Output n : check the boxes from the Enable column for Waveform Output 0, 1, 2, 3
+    <br>  - Waveform Output n: Check the boxes from the Enable column for Waveform Output 0, 1, 2, 3
     <br>  - Duty Cycle High Resolution: Resolution increased by 4
     <br>  - Scale mode: CMP values are scaled from Bottom, 0% DC (duty cycle)
     <br>  - Scaled Writing to registers: Fractional
-    <br>  - Amplitude Control Enable: toggle the button (it turns blue if enabled)
+    <br>  - Amplitude Control Enable: Toggle the button (it turns blue if enabled)
     <br>  - Amplitude Value: 1
 <br><img src="../images/TCE_Scaling.png">
 
-<br>6. In the **Pin Grid View** tab check if the TCE WO [0-3] pins are locked as outputs on PORTA. When the boxes from the Enable column in the Output Settings of TCE are checked, the pins are also locked. To change the PORT simply click a pin from another PORT in **Pin Grid View**. Select from **Pin Grid View** tab PIN5 and PIN4 of PORTD as outputs to toggle when the amplitude, compare values and scale mode changes.
+<br>6. In the **Pin Grid View** tab check if the TCE WO [0-3] pins are locked as outputs on PORTA. When the boxes from the Enable column in the Output Settings of TCE are checked, the pins are also locked. To change the PORT, click a pin from another PORT in **Pin Grid View**. Select from **Pin Grid View** tab PIN5 and PIN4 of PORTD as outputs to toggle when the amplitude, compare values and scale mode changes.
 
  |            Pin           |    Configuration    |
  | :---------------------:  | :----------------:  |
@@ -270,9 +270,9 @@ Below are illustrations of logic analyzer captures to help understand how the 4 
 <br>The range of the duty cycles is scaled to 0-150% of the PERIOD
 <br><img src="../images/Scaling_0_150.png">
 
-<br>PD5 and PD4 pins that toggle every 10ms respective every 40ms
+<br>PD5 and PD4 pins that toggle every 10 ms, respective every 40 ms
 <br><img src="../images/IO_Toggles_Scaling.png">
 
 ## Summary
 
-This project shows how to use the TCE to generate PWM signals in dual ramp mode and how the different scaling modes affect the values of PWM duty cycles from CMP channels of TCE, depending on the set amplitude and offset.
+This project shows how to use the TCE to generate PWM signals in Dual-Ramp mode and how the different scaling modes affect the values of PWM duty cycles from CMP channels of TCE, depending on the set amplitude and offset.
