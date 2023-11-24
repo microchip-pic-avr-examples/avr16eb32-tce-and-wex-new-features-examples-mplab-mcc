@@ -110,8 +110,8 @@ void Sinewave_Modulation(void)
 
  |Pin                       | Configuration       |
  | :---------------------:  | :----------------:  |
- |            PA0           |   TCE WO0           |
- |            PA1           |   TCE WO1           |
+ |            PA0           |   WEX WO0           |
+ |            PA1           |   WEX WO1           |
 
  <br><img src="../images/Pin_Grid_View_PWM_Modulation.PNG">
 
