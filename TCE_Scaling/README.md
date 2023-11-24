@@ -236,7 +236,7 @@ int main(void)
 <br>9. Now the project can be built and run from MPLAB X IDE. At run time, the scaling value for the compare registers modifies every 10 ms and the range of the duty cycles modifies accordingly. The scale mode modifies every 40 ms.
 
  ## Operation
-
+ 
  1. Connect the board to the PC.
 
  2. Open the ```TCE_Scaling.X``` solution in MPLAB X IDE.
